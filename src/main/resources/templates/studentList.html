@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>  <!-- NOTE ilker changed from "ISO-8859-1" -->
+<!--
+<script type="text/javascript" src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+-->
+<script type="text/javascript" 
+		src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1-1/jquery.min.js"
+		th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+<script type="text/javascript"
+		src="http://cdn.jsdelivr.net/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js" 
+		th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<link rel="stylesheet"
+	  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" 
+	  th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}" />
+<title>List of Students</title>
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-block">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Student ID</th>
+							<th>Name</th>
+							<th>Lastname</th>
+							<th>Grade</th>
+							<th>Age</th>
+							<th>IsFullTime</th>
+							<th>UpdatedOn</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="student :${studentsData.content}">
+							<td th:text="${student.studentId}"></td>
+							<td th:text="${student.name}"></td>
+							<td th:text="${student.lastname}"></td>
+							<td th:text="${student.grade}"></td>
+							<td th:text="${student.age}"></td>
+							<td th:text="${student.isFullTime}"></td>
+							<td th:text="${student.updatedOn}"></td>
+						</tr>
+					</tbody>
+				</table>			
+				<hr/>
+				<ul class="nav nav-pills">
+					<li class="nav-item" th:each="i : ${#numbers.sequence(0,studentsData.totalPages-1)}">
+						<a th:text="${i}" th:href="@{/mvc/student/list(page=${i})}" class="nav-link" th:classappend="${currentPage}==${i}?'active':''"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
