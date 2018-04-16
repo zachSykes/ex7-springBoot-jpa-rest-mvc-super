@@ -29,13 +29,14 @@ public class StudentEntity {
 	private String grade;
 	private Integer age;
 	private Boolean isFullTime;
-	@Temporal(TemporalType.DATE)
-	private Date updatedOn;
+//	@Temporal(TemporalType.DATE)
+//	private Date updatedOn;
+	private String updatedOn;
 	
 	public StudentEntity() { }
 
-	public StudentEntity(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime,
-			Date updatedOn) {
+//	public StudentEntity(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime, Date updatedOn) {
+	public StudentEntity(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime, String updatedOn) {
 		super();
 		this.studentId = studentId;
 		this.name = name;
@@ -94,11 +95,11 @@ public class StudentEntity {
 		this.isFullTime = isFullTime;
 	}
 
-	public Date getUpdatedOn() {
+	public String getUpdatedOn() {
 		return updatedOn;
 	}
 
-	public void setUpdatedOn(Date updatedOn) {
+	public void setUpdatedOn(String updatedOn) {
 		this.updatedOn = updatedOn;
 	}
 

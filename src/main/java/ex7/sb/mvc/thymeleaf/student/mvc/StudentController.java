@@ -55,13 +55,13 @@ public class StudentController {
 	@PostMapping("/save")
 	public String saveStudent(StudentEntity student) {
 		studentRepository.save(student);
-		return "redirect:/list";	// after student is added, want to go to student list view, so redirect to it's url
+		return "redirect:/mvc/student/list";	// after student is added, want to go to student list view, so redirect to it's url
 	}
 	
 	@GetMapping("/delete")
 	public String deleteStudent(Integer studentId) {
 		studentRepository.deleteById(studentId);
-		return "redirect:/list";	// after student is deleted, want to go to student list view, so redirect to it's url
+		return "redirect:/mvc/student/list";	// after student is deleted, want to go to student list view, so redirect to it's url
 	}
 	
 	// TODO ilker see how to make this work
@@ -71,8 +71,9 @@ public class StudentController {
 		return studentRepository.findById(studentId);
 	}
 	
+	// NOTE ilker this is equivalent to findOne or findById
 	@GetMapping("/detail")
-	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return
+	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return the StudentEntity
 	public StudentEntity showStudentDetail(Integer studentId) {
 		Optional<StudentEntity> student = studentRepository.findById(studentId);
 		return student.isPresent() ? student.get() : null;

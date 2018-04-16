@@ -17,6 +17,11 @@ http://localhost:8888/mvc/student/echoMessage
 http://localhost:8888/mvc/student/echoMessage?msg=Yahooo
 http://localhost:8888/mvc/student/list
 
+## To startup postman or ARC(Advanced Rest Client)
++ open chrome browser, in url enter 
+chrome://apps/
++ double click on Postman or ARC
+
 ## To see it's REST services running
 + start the app
 + access it's REST services via a REST client tool like postman, Advanced Rest Client (ARC) or even just a browser (for GET ones);
@@ -26,7 +31,8 @@ http://localhost:8888/rest/v1/students/all							GET
 http://localhost:8888/rest/v1/students								POST to create
 
 ## To access h2 db console with browser
-+ start the app 
++ start the app
++ make sure app is not protected with spring security (it is not a dependency in pom.xml). Because /h2-console will be protected by Spring security as well, if it is on
 + access the h2 db console (assuming app started at port 8888) with a browser,
  just click "Connect" leaving; 
  Driver Class: org.h2.Driver, 
