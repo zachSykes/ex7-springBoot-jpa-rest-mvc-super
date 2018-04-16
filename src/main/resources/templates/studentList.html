@@ -25,6 +25,7 @@
 </head>
 <body>
 	<div class="container">
+		<button class="btn btn-success nBtn">New</button>
 		<div class="card">
 			<div class="card-block">
 				<table class="table table-hover">
@@ -50,7 +51,10 @@
 							<td th:text="${student.isFullTime}"></td>
 							<td th:text="${student.updatedOn}"></td>
 							<!-- NOTE ilker th:href="@{detail}" is relative path, equivalent to th:href="@{/mvc/student/detail}" -->
-							<td><a th:href="@{/mvc/student/detail/(studentId=${student.studentId})}" class="btn btn-primary eBtn">Edit</a></td>
+							<td>
+								<a th:href="@{/mvc/student/detail/(studentId=${student.studentId})}" class="btn btn-primary eBtn">Edit</a>
+								<a th:href="@{/mvc/student/delete/(studentId=${student.studentId})}" class="btn btn-danger dBtn">Delete</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>			
@@ -63,7 +67,7 @@
 			</div>
 		</div>
 	
-	<!-- NOTE ilker BEF Bootstrap form -->
+	<!-- NOTE ilker BEF Bootstrap form to edit -->
 	<div class="myForm">
         <form th:action="@{/mvc/student/save}" method="post">
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,13 +111,36 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary" value="save/update"/>
+        <input type="submit" class="btn btn-primary" value="save"/>
       </div>
     </div>
   </div>
 </div>	
         </form>
 	</div>
+	
+	<!-- Modal for delete -->
+<div class="modal fade" id="exampleModal4delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<p class="alert alert-danger">
+      	    ilker, really want to delete?
+      	</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="" class="btn btn-danger" id="dConfBtn">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
 	
 	</div>
 </body>
