@@ -6,8 +6,8 @@
 $(document).ready(function(){
 	// create new user or edit one
 	$('.nBtn, .table .eBtn').on('click', function(event){
-//		console.log("ILKER -->");
-//		debugger;
+//		console.log("ILKER -->");	// NOTE ilker, this is JS way to 
+//		debugger;	// NOTE ilker, this is JS way of putting breakpoint hard coded into your code.If you uncomment this, this JS code will stop at this line for you to continue in debugger of DevTool of browser
 
 		// NOTE ilker if you have href="" in anchor tag this jQuery marker triggers on, then you need to have below line to be able to see modal popup
 		//         or if you have th:href="@{detail/(studentId=${student.studentId})}", then you need below line to stop it from showing the result as json object

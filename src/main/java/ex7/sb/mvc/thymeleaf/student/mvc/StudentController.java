@@ -52,7 +52,8 @@ public class StudentController {
 		return "studentList";
 	}
 	
-	@PostMapping("/save")
+	// /mvc/student/save    POST
+	@PostMapping("/save")   
 	public String saveStudent(StudentEntity student) {
 		studentRepository.save(student);
 		return "redirect:/mvc/student/list";	// after student is added, want to go to student list view, so redirect to it's url
@@ -64,7 +65,6 @@ public class StudentController {
 		return "redirect:/mvc/student/list";	// after student is deleted, want to go to student list view, so redirect to it's url
 	}
 	
-	// TODO ilker see how to make this work
 	@GetMapping("/detailOptional")
 	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return
 	public Optional<StudentEntity> showStudentDetailOptional(Integer studentId) {
@@ -72,7 +72,7 @@ public class StudentController {
 	}
 	
 	// NOTE ilker this is equivalent to findOne or findById
-	@GetMapping("/detail")
+	@GetMapping("/detail")	// /mvc/student/detail
 	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return the StudentEntity
 	public StudentEntity showStudentDetail(Integer studentId) {
 		Optional<StudentEntity> student = studentRepository.findById(studentId);
