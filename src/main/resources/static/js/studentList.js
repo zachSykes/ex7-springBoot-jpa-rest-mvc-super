@@ -15,7 +15,7 @@ $(document).ready(function(){
 		var href = $(this).attr('href');
 		var text = $(this).text();
 		if(text=='Edit') {
-			// make ajax (REST) call via jQuery's get. Then 
+			// NOTE ilker, make ajax (REST) call via jQuery's get. Then once REST service returns data (in data4student variable) back, below function executes "asynchronously"
 			$.get(href, function(data4student, status){
 				$('.myForm #studentId').val(data4student.studentId);
 				$('.myForm #name').val(data4student.name);
@@ -25,10 +25,15 @@ $(document).ready(function(){
 				$('.myForm #isFullTime').val(data4student.isFullTime);
 				$('.myForm #updatedOn').val(data4student.updatedOn);
 			});
-			// let Bootstrap modal popup via below jQuery call
+			// NOTE ilker, let Bootstrap modal popup via below jQuery call
 			$('.myForm #exampleModal').modal();	// modal(), modal('show'), modal('toggle')
 		} else {
-			$('.myForm #studentId').val('N/A');
+			// NOTE ilker, hide studentId input div. And disable studentId input. Since studentId is "@GeneratedValue(strategy=GenerationType.AUTO)" in StudentEntity and inputs that can not be parsed to Integer will cause 400 Bad Request upon POST of form, no need for user to be able to enter anything here
+			$('.myForm #studentId').prop("disabled", true); // example of setting an attribute of the element
+			$('.myForm #studentId').prop("type", "hidden"); // NOTE this does not hide the label, just hides the input element, so below line is better
+			$('.myForm #studentId').parent().hide();	// NOTE ilker using jQuery APIs parent() to get parent div of #studentId input and then hide() to hide that div
+			// initialize the fields of modal
+			$('.myForm #studentId').val('');	// NOTE ilker for post form submission to be auto serialized to StudentEntity at StudentController's method, this needs to be initialized to a value that can be parsed to Integer since studentId attribute is an Integer. Otherwise you will get 400 Bad Request upon POST submit
 			$('.myForm #name').val('');
 			$('.myForm #lastname').val('');
 			$('.myForm #grade').val('');
