@@ -10,6 +10,15 @@ Example Spring Boot MVC (Model View Controller) project using;
 + jQuery for dynamic UI
 + Webjars for UI (JS and CSS) dependencies like Bootstrap and jQuery in jar dependencies
 
+## Paginated and dynamic Students list table
++ the students are stored in RDBMS (H2), persisted via Spring Data JPA, which uses by default hibernate behind the scenes
++ students are displayed with a Spring MVC page (StudentController.java, studentList.html, studentList.js)
++ students are fetched from DB in a paginated fashion and displayed in a table (/mvc/student/list), studentList.html
++ dynamic behavior is added with jQuery JS code in studentList.js
++ a student record can be edited, deleted
++ a new student record can be created with "New" button on top
++ student edit and new is done through "modal" pop-up of Bootstrap code
+
 ## To see it's UI running
 + start the app
 + access it's UI via browser at
