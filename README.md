@@ -51,6 +51,26 @@ http://localhost:8888/rest/v1/students								POST to create
 
 http://localhost:8888/h2-console
 
+
+## To start mongoDb
++ assuming mongodb has been installed and properly added to the path, at command prompt issue
+```
+mongod
+```
++ then connect to it via mongodb client that comes with mongodb install, at command prompt issue
+```
+mongo
+```
++ to shutdown the mongoDb that is running from mongodb client mongo command prompt
+```
+>use admin
+>db.shutdownServer()
+```
++ or you can shutdown running mongoDb by issuing at command promt
+```
+mongo --eval "db.getSiblingDB('admin').shutdownServer()"
+```
+
 ## To create the project in STS
 1. File -> New -> Spring Starter Project
   - Name: exp7-springBoot-mvc-thymeleaf-student
@@ -64,6 +84,7 @@ http://localhost:8888/h2-console
   * click Web -> Web
   * click Template Engines -> Thymeleaf
   * click SQL -> JPA, JDBC, MySQL, H2
+  * click NoSQL -> MongoDB
   * click Core -> DevTools, Lombok
   * click Ops -> Actuator
 3. click Finish
