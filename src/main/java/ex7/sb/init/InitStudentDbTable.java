@@ -1,14 +1,14 @@
 /**
  * 
  */
-package ex7.sb.mvc.thymeleaf.student.init;
+package ex7.sb.init;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import ex7.sb.mvc.thymeleaf.student.jpa.model.StudentEntity;
-import ex7.sb.mvc.thymeleaf.student.jpa.repo.StudentRepository;
+import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.repo.StudentRepository;
 
 /**
  * Used as an alternate way to data.sql and data-h2.sql files to init the DB

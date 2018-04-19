@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ex7.sb.mvc.thymeleaf.student.jpa.model;
+package ex7.sb.student.jpa.model;
 
 import java.util.Date;
 

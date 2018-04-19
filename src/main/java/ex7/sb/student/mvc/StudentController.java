@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ex7.sb.mvc.thymeleaf.student.mvc;
+package ex7.sb.student.mvc;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ex7.sb.mvc.thymeleaf.student.jpa.model.StudentEntity;
-import ex7.sb.mvc.thymeleaf.student.jpa.repo.StudentRepository;
+import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.repo.StudentRepository;
 
 /**
  * @author ilker

@@ -1,4 +1,4 @@
-package ex7.sb.mvc.thymeleaf.student;
+package ex7.sb.student;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

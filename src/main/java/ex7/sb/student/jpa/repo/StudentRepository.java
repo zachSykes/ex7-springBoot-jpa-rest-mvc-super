@@ -1,14 +1,14 @@
 /**
  * 
  */
-package ex7.sb.mvc.thymeleaf.student.jpa.repo;
+package ex7.sb.student.jpa.repo;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ex7.sb.mvc.thymeleaf.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.model.StudentEntity;
 
 /**
  * @author ilker

@@ -1,4 +1,4 @@
-package ex7.sb.mvc.thymeleaf.student;
+package ex7.sb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
