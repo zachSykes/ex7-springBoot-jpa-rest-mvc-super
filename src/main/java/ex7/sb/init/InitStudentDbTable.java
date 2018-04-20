@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.model.Student;
 import ex7.sb.student.jpa.repo.StudentRepository;
 
 /**
@@ -33,8 +33,8 @@ public class InitStudentDbTable implements CommandLineRunner {
 	 */
 	@Override
 	public void run(String... args) throws Exception {
-		StudentEntity studentUno = new StudentEntity("ilker", "kiris", "lise3", 18, true, "04/17/2018");
-		StudentEntity savedStudentUno = studentRepsitory.save(studentUno);
+		Student studentUno = new Student("ilker", "kiris", "lise3", 18, true, "04/17/2018");
+		Student savedStudentUno = studentRepsitory.save(studentUno);
 		System.out.println("-----> ILKER ----> Saved studentUno");
 	}
 

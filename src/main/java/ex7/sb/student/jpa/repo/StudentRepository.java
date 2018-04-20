@@ -8,12 +8,12 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.model.Student;
 
 /**
  * @author ilker
  *
  */
-public interface StudentRepository extends JpaRepository<StudentEntity, Integer> {
-	public Optional<List<StudentEntity>> findByName(String name);
+public interface StudentRepository extends JpaRepository<Student, Integer> {
+	public Optional<List<Student>> findByName(String name);
 }

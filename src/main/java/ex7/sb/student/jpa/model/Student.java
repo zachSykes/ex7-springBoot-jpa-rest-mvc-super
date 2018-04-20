@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity(name="STUDENT")	// NOTE ilker, if name is not specified class name camel cased to table name in DB, like STUDENT_ENTITY
-public class StudentEntity {
+public class Student {
 	@Id
 	// NOTE ilker, GenerationType.AUTO means h2 will create a sequence that starts with 0 value and use that for studentId values
 	@GeneratedValue		// NOTE ilker GenerationType.AUTO is the default strategy, so this line is equivalent to below one.
@@ -34,10 +34,10 @@ public class StudentEntity {
 //	private Date updatedOn;
 	private String updatedOn;
 	
-	public StudentEntity() { }
+	public Student() { }
 
 //	public StudentEntity(String name, String lastname, String grade, Integer age, Boolean isFullTime, Date updatedOn) {
-	public StudentEntity(String name, String lastname, String grade, Integer age, Boolean isFullTime, String updatedOn) {
+	public Student(String name, String lastname, String grade, Integer age, Boolean isFullTime, String updatedOn) {
 		super();
 		this.name = name;
 		this.lastname = lastname;
@@ -48,7 +48,7 @@ public class StudentEntity {
 	}
 	
 //	public StudentEntity(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime, Date updatedOn) {
-	public StudentEntity(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime, String updatedOn) {
+	public Student(Integer studentId, String name, String lastname, String grade, Integer age, Boolean isFullTime, String updatedOn) {
 		this(name, lastname, grade, age, isFullTime, updatedOn);
 		this.studentId = studentId;
 	}

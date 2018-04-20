@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.model.Student;
 import ex7.sb.student.jpa.repo.StudentRepository;
 
 /**
@@ -45,7 +45,7 @@ public class StudentController {
 	
 	@GetMapping("/list")
 	public String showStudentList(Model model, @RequestParam(defaultValue="0") int page, @RequestParam(value="rowsPerPage", defaultValue="5") int size) {
-		Page<StudentEntity> studentsPage = studentRepository.findAll(new PageRequest(page, size));
+		Page<Student> studentsPage = studentRepository.findAll(new PageRequest(page, size));
 		model.addAttribute("studentsData", studentsPage);
 		model.addAttribute("currentPage", page);	// for UI nav-pills to high light "active" page
 		model.addAttribute("rowsPerPage", size);	// example of passing 2 uri params
@@ -54,7 +54,7 @@ public class StudentController {
 	
 	// /mvc/student/save    POST
 	@PostMapping("/save")   
-	public String saveStudent(StudentEntity student) {
+	public String saveStudent(Student student) {
 		studentRepository.save(student);
 		return "redirect:/mvc/student/list";	// after student is added, want to go to student list view, so redirect to it's url
 	}
@@ -67,15 +67,15 @@ public class StudentController {
 	
 	@GetMapping("/detailOptional")
 	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return
-	public Optional<StudentEntity> showStudentDetailOptional(Integer studentId) {
+	public Optional<Student> showStudentDetailOptional(Integer studentId) {
 		return studentRepository.findById(studentId);
 	}
 	
 	// NOTE ilker this is equivalent to findOne or findById
 	@GetMapping("/detail")	// /mvc/student/detail
 	@ResponseBody			// NOTE ilker since will be using jQuery for this, let it return the StudentEntity
-	public StudentEntity showStudentDetail(Integer studentId) {
-		Optional<StudentEntity> student = studentRepository.findById(studentId);
+	public Student showStudentDetail(Integer studentId) {
+		Optional<Student> student = studentRepository.findById(studentId);
 		return student.isPresent() ? student.get() : null;
 	}
 }

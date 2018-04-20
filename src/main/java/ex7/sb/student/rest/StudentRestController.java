@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ex7.sb.student.jpa.model.StudentEntity;
+import ex7.sb.student.jpa.model.Student;
 import ex7.sb.student.jpa.repo.StudentRepository;
 
 /**
@@ -42,22 +42,20 @@ public class StudentRestController {
 	}
 
 	@GetMapping("")
-	public Page<StudentEntity> findAll(@RequestParam(defaultValue="0") int page, @RequestParam(value="rowsPerPage", defaultValue="5") int size) {
-		Page<StudentEntity> studentsPage = studentRepository.findAll(new PageRequest(page, size));
+	public Page<Student> findAll(@RequestParam(defaultValue="0") int page, @RequestParam(value="rowsPerPage", defaultValue="5") int size) {
+		Page<Student> studentsPage = studentRepository.findAll(new PageRequest(page, size));
 		return studentsPage;
 	}
 
 	@GetMapping("/all")
-	public  List<StudentEntity> findAll() {
-		List<StudentEntity> students = studentRepository.findAll();
+	public  List<Student> findAll() {
+		List<Student> students = studentRepository.findAll();
 		return students;
 	}
 
 	@PostMapping("")
-	public  Optional<StudentEntity> save(@RequestBody final StudentEntity student) {
-		StudentEntity savedStudent = studentRepository.save(student);
+	public  Optional<Student> save(@RequestBody final Student student) {
+		Student savedStudent = studentRepository.save(student);
 		return studentRepository.findById(savedStudent.getStudentId());
 	}
-	
-	
 }
