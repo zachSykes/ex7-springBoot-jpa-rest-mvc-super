@@ -70,6 +70,13 @@ public class TeacherRestController {
 		Optional<List<Teacher>> teachers = teacherRepository.findByTeacherId(teacherId);
 		return teachers;
 	}
+	
+	// curl -i http://localhost:8888/rest/v1/teachers/age/19/25
+	@GetMapping("/age/{ageGT}/{ageLT}")
+	public  List<Teacher> findMyByAgeBetween(@PathVariable Integer ageGT, @PathVariable Integer ageLT) {
+		List<Teacher> teachers = teacherRepository.findMyByAgeBetween(ageGT, ageLT);
+		return teachers;
+	}
 
 	@PostMapping("")
 	/**
