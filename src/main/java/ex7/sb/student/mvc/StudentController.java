@@ -43,6 +43,11 @@ public class StudentController {
 		return "echoMessage echoed: " + message;
 	}
 	
+	@GetMapping("/index4angular-hello")
+	public String index4angular_hello() {
+		return "index4angular-hello";
+	}
+	
 	@GetMapping("/list")
 	public String showStudentList(Model model, @RequestParam(defaultValue="0") int page, @RequestParam(value="rowsPerPage", defaultValue="5") int size) {
 		Page<Student> studentsPage = studentRepository.findAll(new PageRequest(page, size));
