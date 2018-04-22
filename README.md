@@ -66,7 +66,7 @@ mongo
 >use admin
 >db.shutdownServer()
 ```
-+ or you can shutdown running mongoDb by issuing at command promt
++ or you can shutdown mongoDb by issuing at command promt
 ```
 mongo --eval "db.getSiblingDB('admin').shutdownServer()"
 ```
@@ -95,3 +95,38 @@ mongo --eval "db.getSiblingDB('admin').shutdownServer()"
 + right click on src/main/resources/templates , click New, select Web -> Html File -> Html5
 + then start sprinkling thymeleaf tags into the html
 + then pass data from controller to UI's view via model.addAttribute method
+
+## To cretae small hello world ish angular app that is part of SpringBoot app
++ assuming node and npm are installed
++ make sure angular CLI is installed (check its version). Make sure it is higher than 1.6.3. And if not installed, install it.
+```
+ng -v
+ng install -g @angular/cli
+```
++ if your CLI version is 1.6.3 or lower or lower than 1.6.5, then probably "ng serve" will fail, then check your angular CLI version and upgrade to latest
+```
+ng -v
+npm update -g @angular/cli
+```
++ create the app shell via CLI using its "ng new", which takes a while to download all npm dependencies
+```
+cd /c/fdu/csci4380/projects
+cd ex7-springBoot-jpa-rest-mvc
+mkdir -p src/ui-angular
+cd src/ui-angular
+ng new angular-hello
++ run the angular app to serve at default port 4200
+```
+ng serve
+```
++ connect to angular app via browser
+```
+http://localhost:4200
+```
++ will manually trigger a build of it using "ng build", which will output as described in below outDir value in .angular-cli.json
+```
+"outDir": "../../main/resources/static/angularDist"
+```
+```
+ng build
+```
