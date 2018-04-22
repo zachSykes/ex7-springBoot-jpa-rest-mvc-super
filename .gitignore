@@ -28,4 +28,10 @@
 ###############################################
 .git/
 
+# log to be ignored by git as well #
+######################################
 logs/
+
+# dist directory of "ng build" to be ignored by git as well #
+#############################################################
+src/main/resources/static/angularDist/
