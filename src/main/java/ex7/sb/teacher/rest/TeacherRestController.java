@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,14 @@ public class TeacherRestController {
 	 */
 	public String echoMessage(@RequestParam(value="msg", defaultValue="Hello ilker") String message) {
 		return "echoMessage echoed: " + message;
+	}
+
+	// curl -i http://localhost:8888/rest/v1/teachers/messageInJsonObject?msg=Hi
+	@GetMapping("/messageInJsonObject")
+//	@CrossOrigin		// NOTE ilker means all origins are allowed for this uri
+	@CrossOrigin(origins={"http://localhost:4200","http://localhost:4201"})
+	public String messageInJsonObject(@RequestParam(value="msg", defaultValue="Hello ilker") String message) {
+		return "{\"message\":\"messageInJsonObject returned:" + message + "\"}";
 	}
 
 	// curl -i http://localhost:8888/rest/v1/teachers
