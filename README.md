@@ -27,7 +27,7 @@ http://localhost:8888/mvc/student/echoMessage?msg=Yahooo
 http://localhost:8888/mvc/student/list
 
 ## To startup postman or ARC(Advanced Rest Client)
-+ open chrome browser, in url enter 
++ open chrome browser, in url enter  
 chrome://apps/
 + double click on Postman or ARC
 
@@ -70,6 +70,9 @@ mongo
 ```
 mongo --eval "db.getSiblingDB('admin').shutdownServer()"
 ```
+
++ Mac commands
+brew services restart mongodb
 
 ## To create the project in STS
 1. File -> New -> Spring Starter Project
